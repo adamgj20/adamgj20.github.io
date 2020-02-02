@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>ClimateCrisis</title>
+	<style>
+	body {
+		background: #0d2613 url('bg.png');
+	}
+	canvas {
+		border-radius: 10px;
+		box-shadow: 0px 2px #cfefd6;
+	}
+	#timer {
+		font-size: 28px;
+		color: white;
+		text-align: right;
+		position: absolute;
+		top: 0;
+		right: 0;
+		padding: 10px;
+	}
+	</style>
+	<script>var timeLeft = 20;</script>
+    <script src="https://cdn.jsdelivr.net/npm/phaser@3.22.0/dist/phaser-arcade-physics.min.js"></script> 
+</head>
+<body>
+	<img src="logo.png">
+
+    <script src="game.js"></script>
+	
+	<div id="timer">00:20</div>
+	<script>setInterval(function() {
+		var timer = document.getElementById('timer');
+		if (timeLeft >= 10)
+			timer.textContent = '00:' + timeLeft;
+		else
+			timer.textContent = '00:0' + timeLeft;
+		timeLeft -= 1;
+		if (timeLeft < 0) {
+			alert("You ran out of time to avert climate change.");
+			window.location.reload();
+		}
+	}, 1000);
+	</script>
+</body>
+</html>
